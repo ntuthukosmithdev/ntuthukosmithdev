@@ -564,9 +564,9 @@ function Stack() {
               <div className="font-serif text-3xl italic text-paper leading-tight">
                 "Type-safe full-stack with Next.js + tRPC"
               </div>
-              <a href="https://github.com/ntuthukosmith" target="_blank" rel="noreferrer" data-cursor="Follow" className="text-[11px] uppercase tracking-[0.25em] text-accent flex items-center gap-2">
+              {/* <a href="https://github.com/ntuthukosmith" target="_blank" rel="noreferrer" data-cursor="Follow" className="text-[11px] uppercase tracking-[0.25em] text-accent flex items-center gap-2">
                 Follow on GitHub <ArrowUpRight className="h-3 w-3" />
-              </a>
+              </a> */}
             </BentoTile>
           </Reveal>
 
@@ -703,7 +703,7 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-32 grid grid-cols-2 md:grid-cols-4 gap-8 pt-10 border-t border-paper/10 text-sm">
+        <div className="mt-32 grid grid-cols-2 md:grid-cols-3 gap-8 pt-10 border-t border-paper/10 text-sm">
           <div>
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-ash mb-3">
               Elsewhere
@@ -719,11 +719,6 @@ function Footer() {
                   <Linkedin className="h-4 w-4" /> LinkedIn
                 </a>
               </li>
-              <li>
-                <a href="https://ntuthukosmith.github.io" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-paper/80 hover:text-paper">
-                  <ArrowUpRight className="h-4 w-4" /> Portfolio v1
-                </a>
-              </li>
             </ul>
           </div>
           <div>
@@ -734,16 +729,6 @@ function Footer() {
               <li><a href="#work">Work</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#stack">Stack</a></li>
-            </ul>
-          </div>
-          <div>
-            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-ash mb-3">
-              Index
-            </div>
-            <ul className="space-y-2 text-paper/80">
-              <li>Resume / CV</li>
-              <li>Writing</li>
-              <li>Press kit</li>
             </ul>
           </div>
           <div>
