@@ -5,9 +5,11 @@ import { ArrowUpRight, Check, X } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
 
 const EMAIL = "ntuthukosmith10@gmail.com";
-// Formsubmit.co — free, no signup, no API key. First real submission asks
-// you to confirm your email once; after that submissions arrive directly.
-const ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
+// Web3Forms — free, instant activation. Get your access key at
+// https://web3forms.com (enter your email, they email it to you), then put
+// it in `.env.local` as NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your-key-here.
+const ENDPOINT = "https://api.web3forms.com/submit";
+const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 export default function ContactModal({
   open,
@@ -80,37 +82,46 @@ export default function ContactModal({
     setSubmitting(true);
     setError(null);
 
-    // Form-urlencoded body avoids the CORS preflight that JSON triggers,
-    // making this a "simple request" Formsubmit handles reliably.
-    const params = new URLSearchParams();
-    params.append("name", name);
-    params.append("email", email);
-    params.append("company", company || "—");
-    params.append("message", message);
-    params.append(
-      "_subject",
-      `New intro call request from ${name || "your site"}`
-    );
-    params.append("_template", "table");
-    params.append("_captcha", "false");
+    // Missing access key — fall straight to mailto so the form is never broken
+    if (!ACCESS_KEY) {
+      setError(
+        "Form service not configured. Opening your email app as a fallback…"
+      );
+      setTimeout(() => {
+        openMailFallback();
+        setSent(true);
+        setSubmitting(false);
+      }, 600);
+      return;
+    }
 
     try {
       const res = await fetch(ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: params
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject: `New intro call request from ${name || "your site"}`,
+          from_name: name || "Portfolio contact form",
+          name,
+          email,
+          company: company || "—",
+          message,
+          // Routes the reply-to back to the sender so you can hit Reply
+          replyto: email
+        })
       });
 
       const data = await res.json().catch(() => ({}));
-      if (!res.ok || (data && data.success === "false")) {
-        throw new Error(
-          (data && data.message) || "Something went wrong. Please try again."
-        );
+      if (!res.ok || !data?.success) {
+        throw new Error(data?.message || "Something went wrong. Please try again.");
       }
       setSent(true);
     } catch {
-      // Network or CORS failure — fall back to opening the user's mail client
-      // with everything pre-filled so the message still gets through.
+      // Network failure — fall back to opening the user's mail client
       setError(
         "Couldn't reach the form service. Opening your email app as a fallback…"
       );
