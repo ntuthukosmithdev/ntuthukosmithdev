@@ -82,16 +82,20 @@ export default function ContactModal({
     setSubmitting(true);
     setError(null);
 
-    // Missing access key — fall straight to mailto so the form is never broken
+    // Diagnostic so you can see what's happening in the browser console
+    console.log("[contact] ACCESS_KEY present?", Boolean(ACCESS_KEY));
+
+    // Missing access key — env var not loaded (usually means dev server
+    // wasn't restarted after editing .env.local)
     if (!ACCESS_KEY) {
       setError(
-        "Form service not configured. Opening your email app as a fallback…"
+        "Form key not loaded. Make sure you restarted `npm run dev` after creating .env.local. Opening your email app as a fallback…"
       );
       setTimeout(() => {
         openMailFallback();
         setSent(true);
         setSubmitting(false);
-      }, 600);
+      }, 1200);
       return;
     }
 
@@ -110,25 +114,30 @@ export default function ContactModal({
           email,
           company: company || "—",
           message,
-          // Routes the reply-to back to the sender so you can hit Reply
           replyto: email
         })
       });
 
       const data = await res.json().catch(() => ({}));
+      console.log("[contact] web3forms response", res.status, data);
+
       if (!res.ok || !data?.success) {
-        throw new Error(data?.message || "Something went wrong. Please try again.");
+        throw new Error(
+          data?.message || `Web3Forms returned ${res.status}.`
+        );
       }
       setSent(true);
-    } catch {
-      // Network failure — fall back to opening the user's mail client
+    } catch (err) {
+      console.error("[contact] submit failed:", err);
       setError(
-        "Couldn't reach the form service. Opening your email app as a fallback…"
+        `Couldn't reach the form service${
+          err instanceof Error ? ` (${err.message})` : ""
+        }. Opening your email app as a fallback…`
       );
       setTimeout(() => {
         openMailFallback();
         setSent(true);
-      }, 600);
+      }, 1200);
     } finally {
       setSubmitting(false);
     }
