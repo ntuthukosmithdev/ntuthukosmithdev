@@ -715,7 +715,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="inline-flex items-center gap-2 text-paper/80 hover:text-paper">
+                <a href="https://www.linkedin.com/in/ntuthuko-hugh-smith-37191022a" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-paper/80 hover:text-paper">
                   <Linkedin className="h-4 w-4" /> LinkedIn
                 </a>
               </li>
