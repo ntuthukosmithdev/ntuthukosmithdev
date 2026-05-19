@@ -101,15 +101,17 @@ const STACK = [
 
 export default function Page() {
   return (
-    <main className="relative">
+    <>
       <Nav />
-      <Hero />
-      <Marquee />
-      <Work />
-      <About />
-      <Stack />
+      <main className="relative">
+        <Hero />
+        <Marquee />
+        <Work />
+        <About />
+        <Stack />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
 
@@ -161,6 +163,7 @@ function Hero() {
     <section
       id="top"
       ref={ref}
+      aria-label="Introduction"
       className="relative min-h-[110vh] pt-40 pb-24 px-6 md:px-10 overflow-hidden"
     >
       {/* Full-bleed background portrait — blended into the editorial dark theme */}
@@ -194,7 +197,7 @@ function Hero() {
           <span>Portfolio · 2026 Edition</span>
         </div>
 
-        <h1 className="font-serif text-paper leading-[0.92] tracking-tightest text-[14vw] md:text-[11vw]">
+        <h1 itemProp="name" className="font-serif text-paper leading-[0.92] tracking-tightest text-[14vw] md:text-[11vw]">
           <RevealText as="span" className="block">Engineering</RevealText>
           <RevealText as="span" className="block italic text-ash">
             scalable digital
@@ -250,7 +253,7 @@ function Marquee() {
   ];
   const loop = [...items, ...items];
   return (
-    <section className="border-y border-paper/10 py-8 overflow-hidden">
+    <section aria-label="Expertise" className="border-y border-paper/10 py-8 overflow-hidden">
       <div className="flex marquee whitespace-nowrap gap-16 font-serif text-paper text-5xl md:text-7xl">
         {loop.map((t, i) => (
           <span key={i} className="flex items-center gap-16">
@@ -266,7 +269,7 @@ function Marquee() {
 /* ---------------- WORK ---------------- */
 function Work() {
   return (
-    <section id="work" className="px-6 md:px-10 py-32 md:py-48 max-w-[1600px] mx-auto">
+    <section id="work" aria-label="Work and projects" className="px-6 md:px-10 py-32 md:py-48 max-w-[1600px] mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-24">
         <div className="md:col-span-4">
           <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-ash">
@@ -417,7 +420,7 @@ function Field({
 /* ---------------- ABOUT ---------------- */
 function About() {
   return (
-    <section id="about" className="relative px-6 md:px-10 py-32 md:py-48 border-t border-paper/10">
+    <section id="about" aria-label="About Ntuthuko Smith" className="relative px-6 md:px-10 py-32 md:py-48 border-t border-paper/10">
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-12 gap-10">
         <aside className="md:col-span-4 md:sticky md:top-32 self-start">
           <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-ash mb-6">
@@ -508,7 +511,7 @@ function About() {
 /* ---------------- STACK / BENTO ---------------- */
 function Stack() {
   return (
-    <section id="stack" className="px-6 md:px-10 py-32 md:py-48 border-t border-paper/10">
+    <section id="stack" aria-label="Technology stack" className="px-6 md:px-10 py-32 md:py-48 border-t border-paper/10">
       <div className="max-w-[1600px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-16">
           <div className="md:col-span-4">
@@ -631,7 +634,7 @@ function Footer() {
   };
 
   return (
-    <footer id="contact" className="relative px-6 md:px-10 pt-32 md:pt-48 pb-10 border-t border-paper/10">
+    <footer id="contact" aria-label="Contact and footer" className="relative px-6 md:px-10 pt-32 md:pt-48 pb-10 border-t border-paper/10">
       <div className="max-w-[1600px] mx-auto">
         <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-ash mb-10">
           (04) — Let's build · 2026
