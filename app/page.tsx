@@ -755,7 +755,6 @@ function Footer() {
 
         <div className="mt-20 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.3em] text-ash">
           <span>© {new Date().getFullYear()} Ntuthuko Smith. All rights reserved.</span>
-          <span>Designed & built in South Africa · 2026 Edition</span>
         </div>
       </div>
 
