@@ -3,6 +3,7 @@ import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import MagneticCursor from "@/components/MagneticCursor";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const sans = Inter({
   subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({
           <MagneticCursor />
           {children}
         </SmoothScroll>
+        <SpeedInsights />
       </body>
     </html>
   );

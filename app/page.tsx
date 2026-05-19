@@ -456,27 +456,29 @@ function About() {
             as="h2"
             className="font-serif text-4xl md:text-6xl leading-[1.1] tracking-tightest"
           >
-            I treat software like a craft — built with curiosity, shipped with care.
+            I treat software as a designed system — shaped with intent, refined through iteration, and measured by its impact.
           </RevealText>
 
           <Reveal delay={0.15} className="space-y-6 text-paper/75 text-lg leading-relaxed font-serif">
             <p className="first-letter:font-serif first-letter:text-7xl first-letter:float-left first-letter:mr-3 first-letter:leading-[0.85] first-letter:text-paper">
-              I'm a software developer based in South Africa, with a deep love
-              for technology and an eye for design. I started by hand-coding
-              websites in HTML, CSS, and JavaScript and have grown into a
-              full-stack engineer building real products with React, Node.js,
-              and Django. The thread through all of it is the same belief: the
-              best software is <em className="text-paper">creative</em>,{" "}
-              <em className="text-paper">collaborative</em>, and unmistakably{" "}
-              <em className="text-paper">impactful</em>.
+              I'm a software engineer based in South Africa, focused on building
+              products that are both technically sound and meaningfully crafted.
+              My foundation started with static web technologies, and over time
+              evolved into designing and engineering full-stack systems that
+              connect frontend experience with backend reliability.
             </p>
             <p className="font-sans text-base text-paper/65">
-              I work best in small, ambitious teams where design and engineering
-              sit at the same table. I care about clean, maintainable code, the
-              texture of a button press, and the kind of details that make a
-              product feel inevitable. When I'm not shipping, I'm usually
-              learning the next thing — a new framework, a new pattern, a new
-              way to make the web feel a little more alive.
+              What I care about is coherence — between design and engineering,
+              between problem and solution, between intention and execution. The
+              best products feel inevitable: they behave exactly as users expect,
+              while quietly handling complexity underneath the surface.
+            </p>
+            <p className="font-sans text-base text-paper/65">
+              I prefer working in environments where detail matters, feedback
+              loops are short, and ideas are allowed to mature into
+              well-structured systems. Outside of building, I'm constantly
+              refining my understanding of how software should behave — not just
+              how it should be written.
             </p>
           </Reveal>
 
@@ -534,13 +536,18 @@ function Stack() {
               </div>
               <div>
                 <h3 className="font-serif text-4xl md:text-6xl tracking-tightest leading-[1.05] text-paper">
-                  Tools are just tools.
-                  <span className="italic text-ash"> Taste is the moat.</span>
+                  Nothing lost
+                  <span className="italic text-ash"> in translation.</span>
                 </h3>
                 <p className="mt-6 max-w-md text-paper/70">
-                  I keep a deliberately small toolbox and go deep — JavaScript,
-                  Python, React, Django, and the right amount of cloud. Boring,
-                  battle-tested, and ruthlessly composable.
+                  Software is a long-form conversation between intent and
+                  execution. My role as an engineer is to ensure nothing gets
+                  lost in translation — not the problem, not the constraints,
+                  and not the trade-offs.
+                </p>
+                <p className="mt-4 max-w-md text-paper/70">
+                  Simplicity is not the absence of complexity; it is the result
+                  of rigorous decision-making.
                 </p>
               </div>
             </BentoTile>
