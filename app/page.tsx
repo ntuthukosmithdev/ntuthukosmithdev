@@ -210,7 +210,7 @@ function Hero() {
               solutions, with a deep love for technology and an eye for design.
             </p>
           </Reveal>
-          <Reveal delay={0.55} className="md:col-span-4 md:col-start-9 text-paper/60 text-sm leading-relaxed">
+          {/* <Reveal delay={0.55} className="md:col-span-4 md:col-start-9 text-paper/60 text-sm leading-relaxed">
             <div className="font-mono uppercase text-[10px] tracking-[0.25em] text-ash mb-3">
               Currently
             </div>
@@ -218,7 +218,7 @@ function Hero() {
               Building full-stack products with React, Node.js, and Django. Open
               to junior / mid-level engineering roles and freelance collaborations.
             </p>
-          </Reveal>
+          </Reveal> */}
         </div>
       </motion.div>
 
