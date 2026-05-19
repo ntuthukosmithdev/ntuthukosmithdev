@@ -4,6 +4,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import MagneticCursor from "@/components/MagneticCursor";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const sans = Inter({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
           {children}
         </SmoothScroll>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

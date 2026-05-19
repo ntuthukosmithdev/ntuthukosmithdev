@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, Check, X } from "lucide-react";
 import { FormEvent, useEffect, useState } from "react";
 
-const EMAIL = "ntuthukosmith10@gmail.com";
+const EMAIL = "build@ntuthukosmith.com";
 // Web3Forms — free, instant activation. Get your access key at
 // https://web3forms.com (enter your email, they email it to you), then put
 // it in `.env.local` as NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your-key-here.

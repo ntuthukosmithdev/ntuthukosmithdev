@@ -618,7 +618,7 @@ function BentoTile({
 
 /* ---------------- FOOTER / CONTACT ---------------- */
 function Footer() {
-  const email = "ntuthukosmith10@gmail.com";
+  const email = "build@ntuthukosmith.com";
   const [copied, setCopied] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
 
