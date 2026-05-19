@@ -56,5 +56,4 @@ components/
 ## Notes
 
 - Custom cursor is automatically disabled on touch devices.
-- All images load from Unsplash CDN — swap for your own in `next.config.mjs` allowlist.
 - Designed mobile-first; the Bento grid collapses gracefully on narrow viewports.
