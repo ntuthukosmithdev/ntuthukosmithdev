@@ -6,6 +6,7 @@ import MagneticCursor from "@/components/MagneticCursor";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import StructuredData from "./StructuredData";
+import Preloader from "@/components/Preloader";
 
 const sans = Inter({
   subsets: ["latin"],
@@ -108,6 +109,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
       <body className="bg-ink text-paper font-sans antialiased grain selection:bg-accent selection:text-ink">
+        <Preloader />
         <StructuredData />
         <SmoothScroll>
           <MagneticCursor />
